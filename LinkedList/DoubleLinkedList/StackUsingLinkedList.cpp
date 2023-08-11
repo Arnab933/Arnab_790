@@ -17,8 +17,6 @@ private:
         {
             this->value = value;
         }
-
-       
     };
     Node *head = NULL;
     Node *tail = NULL;
