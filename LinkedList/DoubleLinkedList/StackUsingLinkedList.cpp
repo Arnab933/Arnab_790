@@ -18,11 +18,7 @@ private:
             this->value = value;
         }
 
-        Node(int value, int index)
-        {
-            this->value = value;
-            this->index = index;
-        }
+       
     };
     Node *head = NULL;
     Node *tail = NULL;
