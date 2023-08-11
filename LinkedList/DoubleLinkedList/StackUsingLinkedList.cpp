@@ -50,7 +50,7 @@ public:
         return size;
     }
 
-    void pick(int idx)
+    void peek(int idx)
     {
         Node *temp = head;
         if (idx == 0)
@@ -69,7 +69,7 @@ public:
         else
             cout << "Invalid index" << endl;
     }
-    void pick()
+    void peek()
     {
         if (head != NULL)
             cout << head->value << endl;
@@ -106,12 +106,12 @@ int main()
 
     // list.pop();
     // list.pop();
-    // list.pick();
+    // list.peek();
 
-    // list.pick();
-    // list.pick();
+    // list.peek();
+    // list.peek();
 
-    list.pick(0);
+    list.peek(0);
 
     // list.pop();
     // list.pop();
