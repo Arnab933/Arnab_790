@@ -20,6 +20,7 @@ void Insertion(int *arr, int n)
         cout << arr[i] << " ";
     }
 }
+
 int main()
 {
     int n;

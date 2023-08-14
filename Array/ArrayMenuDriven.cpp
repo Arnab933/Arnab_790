@@ -27,6 +27,7 @@ void Insertion(int arr[], int &size, int insertIndex, int value)
     }
     delete[] arr2;
 }
+
 void Deletion(int arr[], int &size, int deletionIndex)
 
 {
@@ -51,19 +52,20 @@ void Deletion(int arr[], int &size, int deletionIndex)
     }
     delete[] arr2;
 }
+
 int main()
 {
     int n;
     cout << "Enter size of the array:";
     cin >> n;
     int *arr = new int[n];
-    cout<<endl;
+    cout << endl;
     cout << "Enter elements of the array:";
     for (int i = 0; i < n; i++)
     {
         cin >> arr[i];
     }
-    
+
     int choice;
     cout << "\nChoose an option:\nEnter 1 for Insertion:\nEnter 2 for Deletion:\n";
     cin >> choice;
