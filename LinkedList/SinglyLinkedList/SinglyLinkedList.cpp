@@ -54,10 +54,11 @@ public:
     void insertLast(int value)
     {
         Node *node = new Node(value);
-        if(head==NULL){
-            node->next=head;
-            head=node;
-            tail=node;
+        if (head == NULL)
+        {
+            node->next = head;
+            head = node;
+            tail = node;
         }
         tail->next = node;
         tail = node;
@@ -170,7 +171,7 @@ int main()
         if (choice == 1)
             continue;
         list.display();
-        cout<<"The size is:"<<list.Size();
+        cout << "The size is:" << list.Size();
         cout << endl;
         break;
     }
@@ -193,14 +194,13 @@ int main()
             {
                 list.deleteFirst();
                 list.display();
-                cout << "The size is:" << list.Size()<<endl;
+                cout << "The size is:" << list.Size() << endl;
             }
             else if (choice == 2)
             {
                 list.deleteLast();
                 list.display();
-                cout << "The size is:" << list.Size()<<endl;
-
+                cout << "The size is:" << list.Size() << endl;
             }
             else
             {
@@ -209,8 +209,7 @@ int main()
                 cin >> idx;
                 list.deleteIndex(idx);
                 list.display();
-                cout << "The size is:" << list.Size()<<endl;
-
+                cout << "The size is:" << list.Size() << endl;
             }
             int rechoice;
             cout << "\nAre want to continue deletion:\n1->Yes\n0->No\n";
