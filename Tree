@@ -1,0 +1,101 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+typedef struct Node
+{
+    int val;
+    struct Node *right,*left;
+}Node;
+
+
+typedef struct BT
+{
+   Node *root;
+}Bt;
+
+Node* init(int val){
+    Node *node = (Node*)malloc(sizeof(Node));
+    node -> val = val;
+    node -> left = NULL;
+    node -> right = NULL; 
+    return node;
+}
+
+
+void helper(Node* node){
+  printf("Do you wanna to insert the left node of %d \n",node->val);
+  int left;
+  scanf("%d",&left);
+  if(left){
+    int val;
+    printf("Enter Value for Left Child \n");
+    scanf("%d",&val);
+    node -> left = init(val);
+    helper(node -> left);
+  }
+  printf("Do you want to insert the right node of %d \n",node->val);
+  int right;
+  scanf("%d",&right);
+  if(right){
+    int val;
+    printf("Enter value of the right child \n");
+    scanf("%d",&val);
+    node -> right = init(val);
+    helper(node->right);
+  }
+}
+
+void insertRoot(Bt* bt){
+    printf("Enter value of the root node: \n");
+    int val;
+    scanf("%d",&val);
+    bt -> root = init(val);
+    helper(bt->root);
+}
+
+void displayPreorder(Node* node){
+  if(node == NULL)
+      return ;
+  printf("%d->",node -> val);
+  displayPreorder(node -> left);
+  displayPreorder(node->right);
+}
+
+void displayInorder(Node* node){
+  if(node == NULL)
+      return ;
+  displayInorder(node -> left);
+  printf("%d->",node -> val);
+  displayInorder(node->right);
+}
+
+void displayPostorder(Node* node){
+  if(node == NULL)
+      return ;
+  displayPostorder(node -> left);
+  displayPostorder(node->right);
+  printf("%d->",node -> val);
+}
+
+void displayTree(Bt *tree){
+  printf("The In-order tree traversal is: \n");
+  displayInorder(tree -> root);
+  printf("NULL \n");
+
+  printf("The pre-order tree traversal is: \n");
+  displayPreorder(tree->root);
+  printf("NULL \n");
+
+  printf("The post-order tree traversal is: \n");
+  displayPostorder(tree->root);
+  printf("NULL \n");
+}
+
+int main()
+{
+  Bt bt;
+  insertRoot(&bt);
+ 
+  displayTree(&bt);
+  return 0;
+}
