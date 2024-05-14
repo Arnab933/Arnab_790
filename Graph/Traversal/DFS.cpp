@@ -9,6 +9,8 @@ class Graph
 private:
     unordered_map<int, list<int>> adj;
     vector<int>traversal;
+    unordered_map<int,int>visited;
+
 public:
     void addEdge(int u, int v, bool direction)
     {
@@ -30,31 +32,21 @@ public:
         }
     }
 
-    void BFS()
-    {
-        queue<int> myqueue; // create a queue for push and pop 
-        unordered_map<int, int> visited; // create a visited map which track all the visited nodes 
-
-        int node = adj.begin()->first; // first node in the graph
-        myqueue.push(node);  // push it in the queue
-
-        while (!myqueue.empty())  // visit untill the queue will be empty
-        {
-            int popNode = myqueue.front();  // 
-            myqueue.pop();  // pop the queue
-            if (!visited[popNode]){ // check that node is already visited or not
-                visited[popNode] = 1;  // if not visited then make it visited
-                traversal.push_back(popNode);  // then push it in traversal list
-            }
-                for (auto pair : adj[popNode])   // find all adjacent nodes of the pop node
-                {
-                    if(!visited[pair])  // if they are not visited then push in into queue 
-                        myqueue.push(pair);
-                }
+    void dfs(int node){
+        visited[node] = 1;  // make it visited
+        traversal.push_back(node); // add this in the traversal list
+        for(auto j : adj[node]){
+            if(!visited[j])
+                dfs(j);
         }
+        return;
     }
 
-    void printBFS(){
+    void DFStraversal(){
+        int node = adj.begin()->first;  // the starting node 
+        dfs(node);  // call the dfs function
+    }
+    void printDFS(){
         for(auto j : traversal){
             cout<<j<<" ";
         }
@@ -77,7 +69,7 @@ int main()
         G.addEdge(u, v, 0);
     }
     G.printEdge();
-    G.BFS();
-    G.printBFS();
+    G.DFStraversal();
+    G.printDFS();
     return 0;
 }
