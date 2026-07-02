@@ -6,7 +6,7 @@ int partition(int *arr,int low,int high){
     int pivot = arr[low];
     int i = low;
     int j = high;
-    if(low < high){
+    while(low < high){
         while (arr[i] <= pivot && i <= high)
             i++;
         while (arr[j] > pivot && j >= low)
